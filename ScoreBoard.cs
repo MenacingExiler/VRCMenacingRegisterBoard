@@ -126,8 +126,10 @@ public class ScoreBoard : UdonSharpBehaviour
     }
     
     //New player registered into board.
-    public void CheckRegister(VRCPlayerApi playerToRegister)
+    public void CheckRegister(int iDToCheck)
     {
+        VRCPlayerApi playerToRegister;
+        playerToRegister = VRCPlayerApi.GetPlayerById(iDToCheck);
         //make player registering into variable accessible in this script
         registeringP = playerToRegister;
         
