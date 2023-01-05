@@ -7,6 +7,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 
+
 public class RegisterButton : UdonSharpBehaviour
 {
     [SerializeField] public ScoreBoard scoreBoard;
@@ -29,8 +30,7 @@ public class RegisterButton : UdonSharpBehaviour
         playerID = VRCPlayerApi.GetPlayerId(Networking.LocalPlayer);
         
         Debug.Log("Sending network event from clicker");
-        //Send player name to scoreboard to check if player is registered yet
-        scoreBoard.CheckRegister(playerID);
+        
         
         //SendRegistrationRequest();
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "SendRegistrationRequest");
@@ -38,6 +38,7 @@ public class RegisterButton : UdonSharpBehaviour
 
     private void SendRegistrationRequest()
     {
-        
+        //Send player name to scoreboard to check if player is registered yet
+        scoreBoard.CheckRegister(playerID);
     }
 }
