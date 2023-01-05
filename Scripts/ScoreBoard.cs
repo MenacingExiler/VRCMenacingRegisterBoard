@@ -44,7 +44,7 @@ public class ScoreBoard : UdonSharpBehaviour
     //int uniquePlayerCount;
     //int winCount[uniquePlayerCount];
     
-    //Variables for saving syncs because UDON CANNOT PASS VARIABLEkrdliesfnkSGhwk
+    //Variables for saving syncs because UDON NETWORK CANNOT PASS VARIABLEkrdliesfnkSGhwk
     //CheckRegister()
     private VRCPlayerApi registeringP;
     //UpdateRegistration()
