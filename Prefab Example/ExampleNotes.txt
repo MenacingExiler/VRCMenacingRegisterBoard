@@ -1,3 +1,0 @@
-Board presets:
-2-4 players required to press play
-when play, teleport to an empty prefab
