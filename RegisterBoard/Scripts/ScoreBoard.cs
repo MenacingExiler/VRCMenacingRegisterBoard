@@ -72,11 +72,23 @@ public class ScoreBoard : UdonSharpBehaviour
         if (_player != null)
         {
             // Check if the player is already in the list.
-            if (!CheckRegister(_player))
+            if (!CheckRegister(_player)) //not in list yet
             {
                 registeredPlayers[registerCount] = _player;
                 registerText[registerCount].text = _player.displayName;
                 registerCount++;
+            }
+            else //already in list. Remove player from list.
+            {
+                //find that matching name then remove from list
+                for (int i = 0; i < registerCount; i++)
+                {
+                    
+                }
+                //reorganize it
+                
+                //cut register count
+                registerCount--;
             }
         }
 
