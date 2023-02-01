@@ -118,9 +118,9 @@ public class ScoreBoard : UdonSharpBehaviour
 
     //** Did not touch I'll let you handle this.
     // Teleport all registered players to designated play area
-    /*public void StartGame()
+    public void StartGame()
     {
-
+        /*
         //Array of players playing likely have nulls. Organize so null is not included.
         for (int i = 0; i > 4; i++)
         {
@@ -130,9 +130,10 @@ public class ScoreBoard : UdonSharpBehaviour
             }
 
         }
+        */
 
         //Check if there is enough players
-        if (playerPlayingCount < 2)
+        if (registerCount < 2)
         {
             Debug.Log("Not enough players!");
             return;
@@ -141,7 +142,8 @@ public class ScoreBoard : UdonSharpBehaviour
         {
             Debug.Log("Game have enough players!");
         }
-
+        
+        /*
         //Set number of players playing same as number registered
         VRCPlayerApi[] playerToTeleport = new VRCPlayerApi[playerPlayingCount];
 
@@ -156,6 +158,7 @@ public class ScoreBoard : UdonSharpBehaviour
                 Networking.LocalPlayer.TeleportTo(teleportToGameStart, Quaternion.identity);
             }
         }
+        */
 
         //foreach (VRCPlayerApi player in playerToTeleport)
         //{
@@ -164,7 +167,7 @@ public class ScoreBoard : UdonSharpBehaviour
 
         //Start game in TurnManager
         //turnManager.StartSetup(playerPlayingCount);
-    }*/
+    }
 
     /////***** GET/SET HELPERS *****///// 
     public Text[] RegisterText
