@@ -80,37 +80,11 @@ public class ScoreBoard : UdonSharpBehaviour
             }
             else //already in list. Remove player from list.
             {
-                //find that matching name then remove from list
-                for (int i = 0; i < registerCount; i++)
-                {
-                    if (registeredPlayers[i] == _player)
-                    {
-                        registeredPlayers[i] = null;
-                        registerText[i].text = "Empty";
-                        registerCount--;//cut register count
-                        //need to reorganize order if the null is set in middle of list
-                        if (i < registerCount)
-                        {
-                            registeredPlayers[i] = registeredPlayers[i+1];
-                            if (i >= 2)
-                            {
-                                //checking how many times reseat have to happen
-                                int loop;
-                                loop = registerCount - registerCount;
-                                for (int j = 0; j < loop; j++)
-                                {
-                                    registeredPlayers[i+1] = registeredPlayers[i+2];
-                                }
-                                
-                            }
-                        }
-                        break; //done.
-                    }
-                }
+                
                 //reorganize it
                 
                 
-                //registerCount--;
+                registerCount--;
             }
         }
 
