@@ -49,8 +49,9 @@ public class ScoreBoard : UdonSharpBehaviour
     /// <param name="_player">The player be searched for in the registeredPlayers array</param>
     /// <returns>(true) Player Found</returns>
     /// <remarks>WARNING: This could be and SHOULD be optimized if the player group gets larger.</remarks>
-    private bool CheckRegister(VRCPlayerApi _player)
+    private int CheckRegister(VRCPlayerApi _player)
     {
+        /*
         bool _ret = false;
         for (int i = 0; i < registerCount; i++)
         {
@@ -59,6 +60,21 @@ public class ScoreBoard : UdonSharpBehaviour
         }
 
         return _ret;
+        */
+
+        int _position = 0;
+        for (int i = 0; i < registerCount; i++)
+        {
+            if (registeredPlayers[i].displayName == _player.displayName)
+            {
+                _position = i;
+                return _position;
+            }
+
+            //if (_position != 0) return _position;
+        }
+
+        return _position;
     }
 
     /// <summary>
@@ -72,15 +88,16 @@ public class ScoreBoard : UdonSharpBehaviour
         if (_player != null)
         {
             // Check if the player is already in the list.
-            if (!CheckRegister(_player)) //not in list yet
+            if (CheckRegister(_player) == 0) //not in list yet
             {
-                registeredPlayers[registerCount] = _player;
-                registerText[registerCount].text = _player.displayName;
+                registeredPlayers[CheckRegister(_player)] = _player;
+                registerText[CheckRegister(_player)].text = _player.displayName;
                 registerCount++;
             }
             else //already in list. Remove player from list.
             {
-                
+                registeredPlayers[CheckRegister(_player)] = null;
+                registerText[CheckRegister(_player)].text = "Empty";
                 //reorganize it
                 
                 
